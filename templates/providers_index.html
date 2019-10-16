@@ -3,6 +3,9 @@
 
 {% block content %}
     <h1>Providers</h1>
+
+    <a href='/providers/new'>New provider</a>
+
     {% for provider in providers %}
         <h2>{{ provider.title }}</h2>
         <small>{{ provider.name }}</small>

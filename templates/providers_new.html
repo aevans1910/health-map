@@ -1,0 +1,32 @@
+<!-- templates/providers_new.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/providers'>
+    <fieldset>
+        <legend>New provider</legend>
+        <!-- TITLE -->
+        <p>
+            <label for='title'>Title</label><br>
+            <input type='text' name='title' />
+        </p>
+        <p>
+            <label for='name'>Name</label><br>
+            <input type='text' name='name' />
+        </p>
+        <p>
+            <label for='location'>Practice location</label><br>
+            <input type='text' name='location' />
+        </p>
+        <p>
+            <label for='phone'>Practice phone number</label><br>
+            <input type='text' name='phone' />
+        </p>
+    </fieldset>
+
+    <!-- BUTTON -->
+    <p>
+        <button type='submit'>Save profile</button>
+    </p>
+</form>
+{% endblock %}
