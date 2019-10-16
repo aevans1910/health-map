@@ -3,33 +3,6 @@
 
 {% block content %}
 <form method='POST' action='/providers'>
-    <fieldset>
-        <legend>New provider</legend>
-        <!-- TITLE -->
-        <p>
-            <label for='title'>Title</label><br>
-            <input id='provider-title' type='text' name='title' />
-        </p>
-        <!-- NAME -->
-        <p>
-            <label for='name'>Name</label><br>
-            <input id='name' type='text' name='name' />
-        </p>
-        <!-- LOCATION -->
-        <p>
-            <label for='location'>Practice location</label><br>
-            <input id='location' type='text' name='location' />
-        </p>
-        <!-- PHONE -->
-        <p>
-            <label for='phone'>Practice phone number</label><br>
-            <input id='phone' type='text' name='phone' />
-        </p>
-    </fieldset>
-
-    <!-- BUTTON -->
-    <p>
-        <button type='submit'>Save profile</button>
-    </p>
+   {% include 'partials/providers_form.html' %}
 </form>
 {% endblock %}

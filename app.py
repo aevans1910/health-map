@@ -22,7 +22,7 @@ def providers_index():
 @app.route('/providers/new')
 def providers_new():
     """List a new provider"""
-    return render_template('providers_new.html')
+    return render_template('providers_new.html', provider={}, title='New provider')
 
 @app.route('/providers', methods=['POST'])
 def providers_submit():
@@ -46,7 +46,7 @@ def providers_show(provider_id):
 def providers_edit(provider_id):
     """Show the edit form for a provider"""
     provider = providers.find_one({'_id': ObjectId(provider_id)})
-    return render_template('providers_edit.html', provider=provider)
+    return render_template('providers_edit.html', provider=provider, title='Edit profile')
 
 @app.route('/providers/<provider_id>', methods=['POST'])
 def providers_update(provider_id):
