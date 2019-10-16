@@ -1,0 +1,10 @@
+<!-- templates/providers_index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Providers</h1>
+    {% for provider in providers %}
+        <h2>{{ provider.title }}</h2>
+        <small>{{ provider.name }}</small>
+    {% endfor %}
+{% endblock %}
