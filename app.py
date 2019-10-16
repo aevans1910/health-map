@@ -62,6 +62,11 @@ def providers_update(provider_id):
         {'$set': updated_provider})
     return redirect(url_for('providers_show', provider_id=provider_id))
 
+@app.route('/providers/<provider_id>/delete', methods=['POST'])
+def providers_delete(provider_id):
+    """Delete one profile"""
+    providers.delete_one({'_id': ObjectId(provider_id)})
+    return redirect(url_for('providers_index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -10,4 +10,8 @@
 <p>{{ provider.phone }}</p>
 
 <p><a href='/providers/{{ provider._id }}/edit'>Edit</a></p>
+<!-- Delete button -->
+<p><form method='POST' action='/providers/{{ provider._id }}/delete'>
+    <button type='submit'>Delete</button>
+</form></p>
 {% endblock %}
