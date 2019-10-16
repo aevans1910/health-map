@@ -7,7 +7,7 @@
     <a href='/providers/new'>New provider</a>
 
     {% for provider in providers %}
-        <h2>{{ provider.title }}</h2>
+        <h2><a href='/providers/{{ provider._id }}'>{{ provider.title }} </a></h2>
         <small>{{ provider.name }}</small>
     {% endfor %}
 {% endblock %}

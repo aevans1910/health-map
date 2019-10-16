@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 client = MongoClient()
 db = client.Health_Map
@@ -33,7 +34,13 @@ def providers_submit():
         'phone' : request.form.get('phone')
     }
     providers.insert_one(provider)
-    return redirect(url_for('providers_index'))
+    return redirect(url_for('providers_show', provider_id=provider_id))
+
+@app.route('/providers/<provider_id>')
+def providers_show(provider_id):
+    """Show a single provider"""
+    provider = providers.find_one({'_id': ObjectId(provider_id)})
+    return render_template ('providers_show.html', provider=provider)
 
 if __name__ == '__main__':
     app.run(debug=True)

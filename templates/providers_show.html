@@ -1,0 +1,11 @@
+<!-- templates/providers_show.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href='/'>Back to home</a>
+
+<h1>{{ provider.title }}</h1>
+<h2>{{ provider.name }}</h2>
+<p>{{ provider.location }}</p>
+<p>{{ provider.phone }}</p>
+{% endblock %}
