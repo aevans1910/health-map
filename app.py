@@ -33,14 +33,35 @@ def providers_submit():
         'location' : request.form.get('location'),
         'phone' : request.form.get('phone')
     }
-    providers.insert_one(provider)
-    return redirect(url_for('providers_show', provider_id=provider_id))
+    provider_id = providers.insert_one(provider).inserted_id
+    return redirect(url_for('providers_show', provider_id=provider_id)) 
 
 @app.route('/providers/<provider_id>')
 def providers_show(provider_id):
     """Show a single provider"""
     provider = providers.find_one({'_id': ObjectId(provider_id)})
     return render_template ('providers_show.html', provider=provider)
+
+@app.route('/providers/<provider_id>/edit')
+def providers_edit(provider_id):
+    """Show the edit form for a provider"""
+    provider = providers.find_one({'_id': ObjectId(provider_id)})
+    return render_template('providers_edit.html', provider=provider)
+
+@app.route('/providers/<provider_id>', methods=['POST'])
+def providers_update(provider_id):
+    """Submit an edited profile"""
+    updated_provider = {
+        'title': request.form.get('title'),
+        'name': request.form.get('name'),
+        'location': request.form.get('location'),
+        'phone': request.form.get('phone')
+    }
+    providers.update_one(
+        {'_id':ObjectId(provider_id)},
+        {'$set': updated_provider})
+    return redirect(url_for('providers_show', provider_id=provider_id))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
