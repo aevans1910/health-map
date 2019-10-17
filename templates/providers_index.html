@@ -5,9 +5,12 @@
     <h1>Providers</h1>
 
     <a href='/providers/new'>New provider</a>
-
+<div class='row'>
     {% for provider in providers %}
-        <h2><a href='/providers/{{ provider._id }}'>{{ provider.title }} </a></h2>
-        <small>{{ provider.name }}</small>
+        <div class='col-md-3'>
+            <h2><a href='/providers/{{ provider._id }}'>{{ provider.title }} </a></h2>
+            <small>{{ provider.name }}</small>
+        </div>
     {% endfor %}
+</div>
 {% endblock %}
