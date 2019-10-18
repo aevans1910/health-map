@@ -3,9 +3,9 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 import os
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/HealthMap')
 client = MongoClient(host=f'{host}?retryWrites=false')
-db = client.Health_Map
+db = client.get_default_database()
 providers = db.providers
 
 app=Flask(__name__)
