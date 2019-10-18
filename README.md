@@ -25,7 +25,7 @@ And finally, a new provider can go on this page and add themselves.
 
 <img src="/static/imgs/newprovider.png" width="55%"></img>
 
-## Running the code:
+## Running the code
 
 - To run this on your local machine, you must simply type `flask run` in your terminal. 
 - To open it in heroku, you can type `heroku open` in your terminal. 
